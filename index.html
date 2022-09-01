@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+
+  <body>
+    <div class="left-site">
+      <div class="left-site-background">
+        <div class="left-site-frontcard">
+          <div class="left-site-frontcard-upper">
+            <div class="full-white-ball"></div>
+            <div class="empty-white-ball"></div>
+          </div>
+          <div class="left-site-frontcard-bottom">
+            <p class="left-card-number">0000 0000 0000 0000</p>
+            <p class="left-card-name">Jane Appleseed</p>
+            <p class="left-card-date">00/00</p>
+          </div>
+        </div>
+        <div class="left-site-backcard">
+          <div class="black-line"></div>
+          <div class="gray-line">
+            <p class="left-card-cvc">000</p>
+          </div>
+          <div class="dashed-lines">
+            <div class="lines"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-site">
+      <form id="form">
+        <label for="name">Cardholder Name</label>
+        <input type="text" id="name" placeholder="e.g. Jane Appleseed" />
+
+        <label for="number">Card Number</label>
+        <input type="text" id="number" placeholder="e.g. 1234 5678 9123 0000" />
+
+        <label for="date">Exp. Date (MM/YY)</label>
+        <label for="CVC">CVC</label>
+        <input type="text" id="date" placeholder="MM" />
+        <input type="text" id="date" placeholder="YY" />
+
+        <input type="text" id="CVC" placeholder="e.g. 123" />
+
+        <input type="submit" value="Confirm" />
+      </form>
+    </div>
+
+    <!-- Completed state start -->
+
+    <!-- TODO -->
+    <!-- Thank you! We've added your card details Continue -->
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Olaf Piasecki</a>.
+    </div> -->
+  </body>
+</html>

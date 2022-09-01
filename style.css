@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  width: 100vw;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+:root {
+  --active-input-border: linear-gradient(
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  );
+  --light-grayish-violet: hsl(270, 3%, 87%);
+  --dark-grayish-violet: hsl(279, 6%, 55%);
+  --very-dark-violet: hsl(278, 68%, 11%);
+}
+
+* {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+}
+
+.left-site {
+  width: 50vw;
+  height: 100vh;
+  color: white;
+  letter-spacing: 0.1em;
+}
+
+.left-site-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 8, 44, 1) 0%,
+    rgba(68, 20, 82, 1) 20%,
+    rgba(80, 35, 56, 1) 35%,
+    rgba(49, 42, 86, 1) 55%,
+    rgba(30, 8, 44, 1) 60%
+  );
+  background-size: 65%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.left-site-frontcard {
+  width: 370px;
+  height: 200px;
+  background: linear-gradient(135deg, #640995 0%, #9e43e0 50%, #6447ff 100%);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 5%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-site-backcard {
+  position: relative;
+  left: 70px;
+  width: 400px;
+  height: 230px;
+  background: rgb(230, 230, 230);
+  border-radius: 10px;
+  /* padding: 30px; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.left-site-frontcard-upper {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.full-white-ball {
+  margin: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.empty-white-ball {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: white solid 3px;
+  align-self: center;
+}
+
+.left-site-frontcard-bottom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.left-card-number {
+  flex-grow: 2;
+  width: 100%;
+  font-size: 1.65em;
+}
+
+.black-line {
+  margin-top: 5%;
+  background-color: hsla(0, 0%, 0%, 0.81);
+  width: 100%;
+  height: 20%;
+}
+
+.gray-line {
+  margin: 5% 10%;
+  background-color: hsla(0, 0%, 50%, 0.6);
+  width: 80%;
+  height: 15%;
+  border-radius: 5px;
+}
+
+.left-card-cvc {
+  text-align: right;
+  margin: 5.5px 15px;
+}
+
+.dashed-lines {
+  align-self: center;
+  width: 100%;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lines::before {
+  display: block;
+  position: relative;
+  bottom: 15px;
+  content: "";
+  width: 60%;
+  height: 5px;
+  background-color: hsla(0, 0%, 50%, 0.7);
+}
+
+.lines {
+  width: 60%;
+  height: 5px;
+  background-color: hsla(0, 0%, 50%, 0.7);
+}
+
+.lines::after {
+  display: block;
+  position: relative;
+  top: 10px;
+  content: "";
+  width: 60%;
+  height: 5px;
+  background-color: hsla(0, 0%, 50%, 0.7);
+}
+
+.right-site {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1324px) {
+  .right-site {
+    justify-content: center;
+  }
+}
+
+form {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+form > * {
+  width: 100%;
+}
+
+form > label[for="date"] {
+  width: 55%;
+}
+
+form > label[for="CVC"] {
+  width: 45%;
+}
+
+form > #date {
+  width: 20%;
+}
+
+form > #CVC {
+  width: 40%;
+}
+
+@media only screen and (max-width: 1324px) {
+  form > #CVC {
+    width: 35%;
+  }
+}
+
+form > label {
+  margin-bottom: 5px;
+}
+
+form > input {
+  border-radius: 5px;
+  margin: auto 5% 10px 0px;
+  border: var(--light-grayish-violet) 2px solid;
+  height: 35px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1324px) {
+  form > input {
+    margin: auto 4% 10px 0px;
+  }
+}
+
+form > input:focus {
+  border-color: var(--active-input-border);
+  outline: none;
+}
+
+form > input[type="submit"] {
+  margin-top: 15px;
+  width: 96%;
+}
+
+form > input[type="text"]::placeholder {
+  color: var(--dark-grayish-violet);
+}
+
+form > input[type="submit"] {
+  background-color: var(--very-dark-violet);
+  color: white;
+  height: 50px;
+}
