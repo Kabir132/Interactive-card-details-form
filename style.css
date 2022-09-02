@@ -116,6 +116,10 @@ body {
   justify-content: space-between;
 }
 
+.left-site-frontcard-bottom > div {
+  display: flex;
+}
+
 .left-card-number {
   flex-grow: 2;
   width: 100%;
@@ -200,7 +204,7 @@ form > * {
   width: 100%;
 }
 
-form > label[for="date"] {
+form > label[for="dateMM"] {
   width: 55%;
 }
 
@@ -208,15 +212,16 @@ form > label[for="CVC"] {
   width: 45%;
 }
 
-form > #date {
+form > #dateMM,
+form > #dateYY {
   width: 20%;
 }
 
 form > #CVC {
-  width: 40%;
+  width: 38%;
 }
 
-@media only screen and (max-width: 1324px) {
+@media only screen and (max-width: 1320px) {
   form > #CVC {
     width: 35%;
   }
@@ -258,4 +263,23 @@ form > input[type="submit"] {
   background-color: var(--very-dark-violet);
   color: white;
   height: 50px;
+}
+
+.errorBorder {
+  border-color: red;
+}
+
+.nameError,
+.numberError,
+.dateError,
+.CVCError {
+  color: red;
+}
+
+form > .dateError {
+  width: 55%;
+}
+
+form > .CVCError {
+  width: 45%;
 }

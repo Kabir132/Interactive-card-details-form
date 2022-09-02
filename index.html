@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link
       rel="icon"
@@ -11,8 +10,8 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
     <title>Frontend Mentor | Interactive card details form</title>
+    <script src="./script.js" defer></script>
   </head>
 
   <body>
@@ -26,7 +25,11 @@
           <div class="left-site-frontcard-bottom">
             <p class="left-card-number">0000 0000 0000 0000</p>
             <p class="left-card-name">Jane Appleseed</p>
-            <p class="left-card-date">00/00</p>
+            <div>
+              <p class="left-card-dateMM">00</p>
+              <span>/</span>
+              <p class="left-card-dateYY">00</p>
+            </div>
           </div>
         </div>
         <div class="left-site-backcard">
@@ -44,18 +47,31 @@
       <form id="form">
         <label for="name">Cardholder Name</label>
         <input type="text" id="name" placeholder="e.g. Jane Appleseed" />
+        <p class="nameError"></p>
 
         <label for="number">Card Number</label>
-        <input type="text" id="number" placeholder="e.g. 1234 5678 9123 0000" />
+        <input
+          type="text"
+          id="number"
+          placeholder="e.g. 1234 5678 9123 0000"
+          pattern="/^4[0-9]{12}(?:[0-9]{3})?$/"
+          inputmode="numeric"
+          autocomplete="cc-number"
+          minlength="19"
+          maxlength="19"
+        />
+        <p class="numberError"></p>
 
-        <label for="date">Exp. Date (MM/YY)</label>
+        <label for="dateMM">Exp. Date (MM/YY)</label>
         <label for="CVC">CVC</label>
-        <input type="text" id="date" placeholder="MM" />
-        <input type="text" id="date" placeholder="YY" />
+        <input type="text" id="dateMM" maxlength="2" placeholder="MM" />
+        <input type="text" id="dateYY" maxlength="2" placeholder="YY" />
 
-        <input type="text" id="CVC" placeholder="e.g. 123" />
+        <input type="text" id="CVC" maxlength="3" placeholder="e.g. 123" />
+        <p class="dateError"></p>
+        <p class="CVCError"></p>
 
-        <input type="submit" value="Confirm" />
+        <input type="submit" value="Confirm" id="submit" />
       </form>
     </div>
 
