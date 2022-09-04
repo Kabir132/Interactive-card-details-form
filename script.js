@@ -1,10 +1,19 @@
-const submit = document.querySelector("#submit");
+const formElement = document.querySelector("form");
+const completeState = document.querySelector(".complete-state");
+const buttonContinue = document.querySelector(".continue");
 
-submit.addEventListener("click", (event) => {
+document.querySelector("#number").addEventListener("keyup", function (event) {
+  let formatedNumber = this.value.split(" ").join("");
+  const regExr = /.{1,4}/g;
+  if (formatedNumber.length > 0) {
+    formatedNumber = formatedNumber.match(regExr).join(" ");
+  }
+  this.value = formatedNumber;
+});
+
+formElement.addEventListener("submit", (event) => {
   event.preventDefault();
-  const errorMessage = document.createElement("p");
-  errorMessage.innerText = "asdsad";
-  rightCard = {
+  form = {
     cardName: document.querySelector("#name"),
     nameError: document.querySelector(".nameError"),
     cardNumber: document.querySelector("#number"),
@@ -16,7 +25,7 @@ submit.addEventListener("click", (event) => {
     CVCError: document.querySelector(".CVCError"),
   };
 
-  leftCard = {
+  card = {
     cardName: document.querySelector(".left-card-name"),
     cardNumber: document.querySelector(".left-card-number"),
     dateMM: document.querySelector(".left-card-dateMM"),
@@ -29,16 +38,16 @@ submit.addEventListener("click", (event) => {
     inputError: inputError,
   }) {
     function isInputNotEmpty(type) {
-      return rightCard[type].value;
+      return form[type].value;
     }
 
     if (isInputNotEmpty(inputName)) {
-      leftCard[inputName].innerText = rightCard[inputName].value.toUpperCase();
-      rightCard[inputError].innerText = "";
-      rightCard[inputName].classList.remove("errorBorder");
+      card[inputName].innerText = form[inputName].value.toUpperCase();
+      form[inputError].innerText = "";
+      form[inputName].classList.remove("errorBorder");
     } else {
-      rightCard[inputError].innerText = "Can't be blank";
-      rightCard[inputName].classList.add("errorBorder");
+      form[inputError].innerText = "Can't be blank";
+      form[inputName].classList.add("errorBorder");
     }
   }
 
@@ -67,8 +76,80 @@ submit.addEventListener("click", (event) => {
     inputError: "CVCError",
   });
 
-  //   function CheckValidationForFormat({
-  //     inputName: inputName,
-  //     inputError: inputError,
-  //   }) {}
+  function checkValidationForFormat({
+    inputName: inputName,
+    inputError: inputError,
+  }) {
+    function itNotContainLetters(type) {
+      const regExr = /[a-zA-Z]+/;
+      return !regExr.test(form[type].value);
+    }
+
+    function checkIfAlreadyError() {
+      if (form[inputError].innerText) {
+        throw new Error("");
+      }
+    }
+
+    if (itNotContainLetters(inputName)) {
+      try {
+        checkIfAlreadyError();
+        form[inputError].innerText = "";
+        form[inputName].classList.remove("errorBorder");
+      } catch (e) {}
+    } else {
+      form[inputError].innerText = "Wrong format, numbers only";
+      form[inputName].classList.add("errorBorder");
+    }
+  }
+
+  checkValidationForFormat({
+    inputName: "cardNumber",
+    inputError: "cardNumberError",
+  });
+
+  checkValidationForFormat({
+    inputName: "dateMM",
+    inputError: "dateError",
+  });
+
+  checkValidationForFormat({
+    inputName: "dateYY",
+    inputError: "dateError",
+  });
+
+  checkValidationForFormat({
+    inputName: "CVC",
+    inputError: "CVCError",
+  });
+
+  function checkForAnyError() {
+    if (form.nameError.innerText) {
+      return "error";
+    }
+
+    if (form.cardNumberError.innerText) {
+      return "error";
+    }
+
+    if (form.dateError.innerText) {
+      return "error";
+    }
+
+    if (form.CVCError.innerText) {
+      return "error";
+    }
+
+    return "";
+  }
+
+  if (!checkForAnyError()) {
+    formElement.classList.add("hide");
+    completeState.classList.remove("hide");
+  }
+});
+
+buttonContinue.addEventListener("click", function () {
+  formElement.classList.remove("hide");
+  completeState.classList.add("hide");
 });

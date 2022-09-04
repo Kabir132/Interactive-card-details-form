@@ -48,13 +48,12 @@
         <label for="name">Cardholder Name</label>
         <input type="text" id="name" placeholder="e.g. Jane Appleseed" />
         <p class="nameError"></p>
-
+        <!-- pattern="/^4[0-9]{12}(?:[0-9]{3})?$/" -->
         <label for="number">Card Number</label>
         <input
           type="text"
           id="number"
           placeholder="e.g. 1234 5678 9123 0000"
-          pattern="/^4[0-9]{12}(?:[0-9]{3})?$/"
           inputmode="numeric"
           autocomplete="cc-number"
           minlength="19"
@@ -73,6 +72,13 @@
 
         <input type="submit" value="Confirm" id="submit" />
       </form>
+
+      <div class="complete-state hide">
+        <div class="submit-ball"></div>
+        <p>THANKS YOU!</p>
+        <p>We've added your card details</p>
+        <button class="continue"></button>
+      </div>
     </div>
 
     <!-- Completed state start -->
