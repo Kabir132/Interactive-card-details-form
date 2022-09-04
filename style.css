@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .show {
@@ -240,7 +240,7 @@ form > label {
 }
 
 form > input {
-  border-radius: 5px;
+  border-radius: 10px;
   margin: auto 5% 10px 0px;
   border: var(--light-grayish-violet) 2px solid;
   height: 35px;
@@ -261,16 +261,13 @@ form > input:focus {
 form > input[type="submit"] {
   margin-top: 15px;
   width: 96%;
+  background-color: var(--very-dark-violet);
+  color: white;
+  height: 50px;
 }
 
 form > input[type="text"]::placeholder {
   color: var(--dark-grayish-violet);
-}
-
-form > input[type="submit"] {
-  background-color: var(--very-dark-violet);
-  color: white;
-  height: 50px;
 }
 
 .errorBorder {
@@ -290,4 +287,59 @@ form > .dateError {
 
 form > .CVCError {
   width: 45%;
+}
+
+.complete-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.complete-state > * {
+  margin-bottom: 5%;
+}
+
+.submit-ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: purple solid 1px;
+  background-color: purple;
+  border-radius: 50%;
+}
+
+.mark::before {
+  display: block;
+  position: relative;
+  left: -4px;
+  top: -5px;
+  transform: rotate(90deg);
+  content: "";
+  width: 10px;
+  height: 3px;
+  background-color: white;
+}
+
+.mark {
+  position: relative;
+  left: 4px;
+  transform: rotate(-45deg);
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+.complete-state-bottom-text {
+  color: gray;
+}
+
+.continue {
+  width: 100%;
+  height: 50px;
+  background-color: var(--very-dark-violet);
+  color: white;
+  border-radius: 10px;
 }

@@ -146,6 +146,11 @@ formElement.addEventListener("submit", (event) => {
   if (!checkForAnyError()) {
     formElement.classList.add("hide");
     completeState.classList.remove("hide");
+    form.cardName.value = "";
+    form.cardNumber.value = "";
+    form.dateMM.value = "";
+    form.dateYY.value = "";
+    form.CVC.value = "";
   }
 });
 
